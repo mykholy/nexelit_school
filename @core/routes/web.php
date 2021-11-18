@@ -2266,6 +2266,40 @@ Route::prefix('admin-home')->middleware(['setlang:backend'])->group(function () 
 
     });
 
+
+    /*==============================================
+            School Module MANAGE
+     ==============================================*/
+    Route::prefix('school')->group(function () {
+
+        /*==============================================
+             FRONTEND Stages MANAGE
+       ==============================================*/
+        Route::prefix('stage')->middleware(['adminPermissionCheck:Stages Manage'])->group(function () {
+            Route::get('/new', 'SchoolStageManageController@new_stage')->name('admin.school.new.stage');
+            Route::post('/new', 'SchoolStageManageController@new_stage_add');
+            Route::post('/update', 'SchoolStageManageController@stage_update')->name('admin.school.stage.update');
+            Route::post('/delete/{id}', 'SchoolStageManageController@new_stage_delete')->name('admin.school.delete.stage');
+            Route::get('/all', 'SchoolStageManageController@all_stage')->name('admin.all.school.stage');
+            Route::post('/all/bulk-action', 'SchoolStageManageController@bulk_action')->name('admin.all.school.stage.bulk.action');
+        });
+
+        /*==============================================
+            FRONTEND Classes MANAGE
+      ==============================================*/
+        Route::prefix('class')->middleware(['adminPermissionCheck:Classes Manage'])->group(function () {
+            Route::get('/new', 'SchoolClassManageController@new_class')->name('admin.school.new.class');
+            Route::post('/new', 'SchoolClassManageController@new_class_add');
+            Route::post('/update', 'SchoolClassManageController@class_update')->name('admin.school.class.update');
+            Route::post('/delete/{id}', 'SchoolClassManageController@new_class_delete')->name('admin.school.delete.class');
+            Route::get('/all', 'SchoolClassManageController@all_class')->name('admin.all.school.class');
+            Route::post('/all/bulk-action', 'SchoolClassManageController@bulk_action')->name('admin.all.school.class.bulk.action');
+        });
+
+    });
+
+
+
     /*==============================================
          ADMIN ROLE MANAGE MANAGE
     ==============================================*/

@@ -14,6 +14,7 @@
         "About Page Manage",
         "Users Manage",
         "Students Manage",
+        "Stages Manage",
         "Quote Manage",
         "Newsletter Manage",
         "Package Orders Manage",
