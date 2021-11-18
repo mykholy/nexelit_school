@@ -62,7 +62,8 @@
 
                     <li class="main_dropdown
                     @if(request()->is(['admin-home/frontend/student/*',
-                    'admin-home/school/stage/*'
+                    'admin-home/school/stage/*',
+                    'admin-home/school/class/*'
                     ])) active @endif">
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-settings"></i>
                             <span>{{__('School Manage')}}</span></a>
@@ -108,6 +109,25 @@
                                 </li>
                             @endif
 
+                         @if(check_page_permission_by_string('Classes Manage'))
+                                    <li
+                                            class="main_dropdown
+                        @if(request()->is([
+                        'admin-home/school/class/*',
+                        ])) active @endif
+                                                    ">
+                                        <a href="javascript:void(0)" aria-expanded="true">
+                                            <span>{{__('Classes Manage')}}</span></a>
+                                        <ul class="collapse">
+                                            <li class="{{active_menu('admin-home/school/class/all')}}"><a
+                                                        href="{{route('admin.all.school.class')}}">{{__('All Classes')}}</a>
+                                            </li>
+                                            <li class="{{active_menu('admin-home/school/class/new')}}"><a
+                                                        href="{{route('admin.school.new.class')}}">{{__('Add New Class')}}</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                @endif
                         </ul>
                     </li>
 

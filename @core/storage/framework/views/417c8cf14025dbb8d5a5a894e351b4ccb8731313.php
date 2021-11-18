@@ -7,52 +7,53 @@
 <?php $__env->stopSection(); ?>
 <?php $__env->startSection('content'); ?>
 
-<?php
-    $all_permission_list = array(
-        "Video Gallery",
-        "Admin Manage",
-        "About Page Manage",
-        "Users Manage",
-        "Students Manage",
-        "Stages Manage",
-        "Quote Manage",
-        "Newsletter Manage",
-        "Package Orders Manage",
-        "All Payment Logs",
-        "Pages Manage",
-        "Menus Manage",
-        "Widgets Manage",
-        "Popup Builder",
-        "Form Builder",
-        "Blogs Manage",
-        "Job Post Manage",
-        "Events Manage",
-        "Products Manage",
-        "Donations Manage",
-        "Knowledgebase",
-        "Home Variant",
-        "Topbar Settings",
-        "Home Page Manage",
-        "Contact Page Manage",
-        "Feedback Page Manage",
-        "Services",
-        "Case Study",
-        "Gallery Page",
-        "404 Page Manage",
-        "Faq",
-        "Brand Logos",
-        "Price Plan",
-        "Team Members",
-        "Testimonial",
-        "Counterup",
-        "General Settings",
-        "Languages",
-        "Courses Manage",
-        "Appointment Manage",
-        "Support Tickets",
-        "Email Templates",
-    );
-?>
+    <?php
+        $all_permission_list = array(
+            "Video Gallery",
+            "Admin Manage",
+            "About Page Manage",
+            "Users Manage",
+            "Students Manage",
+            "Stages Manage",
+             "Classes Manage",
+            "Quote Manage",
+            "Newsletter Manage",
+            "Package Orders Manage",
+            "All Payment Logs",
+            "Pages Manage",
+            "Menus Manage",
+            "Widgets Manage",
+            "Popup Builder",
+            "Form Builder",
+            "Blogs Manage",
+            "Job Post Manage",
+            "Events Manage",
+            "Products Manage",
+            "Donations Manage",
+            "Knowledgebase",
+            "Home Variant",
+            "Topbar Settings",
+            "Home Page Manage",
+            "Contact Page Manage",
+            "Feedback Page Manage",
+            "Services",
+            "Case Study",
+            "Gallery Page",
+            "404 Page Manage",
+            "Faq",
+            "Brand Logos",
+            "Price Plan",
+            "Team Members",
+            "Testimonial",
+            "Counterup",
+            "General Settings",
+            "Languages",
+            "Courses Manage",
+            "Appointment Manage",
+            "Support Tickets",
+            "Email Templates",
+        );
+    ?>
 
     <div class="col-lg-12 col-ml-12 padding-bottom-30">
         <div class="row">
@@ -74,20 +75,20 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                    <?php $__currentLoopData = $all_role; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <tr>
-                                            <td><?php echo e($data->id); ?></td>
-                                            <td><?php echo e($data->name); ?></td>
-                                            <td>
-                                               <div class="permission-show">
-                                                   <?php $all_per = json_decode($data->permission); ?>
-                                                   <?php $__currentLoopData = $all_per; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $per): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                       <span class="text text-success"><?php echo e(ucwords(str_replace('_',' ',$per))); ?></span>
-                                                   <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                               </div>
-                                            </td>
-                                            <td>
-                                                 <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+                                <?php $__currentLoopData = $all_role; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <tr>
+                                        <td><?php echo e($data->id); ?></td>
+                                        <td><?php echo e($data->name); ?></td>
+                                        <td>
+                                            <div class="permission-show">
+                                                <?php $all_per = json_decode($data->permission); ?>
+                                                <?php $__currentLoopData = $all_per; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $per): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                    <span class="text text-success"><?php echo e(ucwords(str_replace('_',' ',$per))); ?></span>
+                                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            </div>
+                                        </td>
+                                        <td>
+                                             <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.delete-popover','data' => ['url' => route('admin.user.role.delete',$data->id)]]); ?>
 <?php $component->withName('delete-popover'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -99,19 +100,19 @@
 <?php endif; ?>
 <?php echo $__env->renderComponent(); ?>
 <?php endif; ?> 
-                                                <a href="#"
-                                                   data-id="<?php echo e($data->id); ?>"
-                                                   data-name="<?php echo e($data->name); ?>"
-                                                   data-permission="<?php echo e($data->permission); ?>"
-                                                   data-toggle="modal"
-                                                   data-target="#user_edit_modal"
-                                                   class="btn btn-xs btn-primary btn-sm mb-3 mr-1 user_edit_btn"
-                                                >
-                                                    <i class="ti-pencil"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                            <a href="#"
+                                               data-id="<?php echo e($data->id); ?>"
+                                               data-name="<?php echo e($data->name); ?>"
+                                               data-permission="<?php echo e($data->permission); ?>"
+                                               data-toggle="modal"
+                                               data-target="#user_edit_modal"
+                                               class="btn btn-xs btn-primary btn-sm mb-3 mr-1 user_edit_btn"
+                                            >
+                                                <i class="ti-pencil"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </tbody>
                             </table>
                         </div>
@@ -123,7 +124,7 @@
                     <div class="card-body">
                         <h4 class="header-title"><?php echo e(__('Add New Admin Role')); ?></h4>
 
-                        <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
+                         <?php if (isset($component)) { $__componentOriginalc254754b9d5db91d5165876f9d051922ca0066f4 = $component; } ?>
 <?php $component = $__env->getContainer()->make(Illuminate\View\AnonymousComponent::class, ['view' => 'components.error-msg','data' => []]); ?>
 <?php $component->withName('error-msg'); ?>
 <?php if ($component->shouldRender()): ?>
@@ -139,13 +140,15 @@
                             <?php echo csrf_field(); ?>
                             <div class="form-group">
                                 <label for="name"><?php echo e(__('Role Name')); ?></label>
-                                <input type="text" class="form-control"  id="name" name="name" placeholder="<?php echo e(__('Enter Role name')); ?>">
+                                <input type="text" class="form-control" id="name" name="name"
+                                       placeholder="<?php echo e(__('Enter Role name')); ?>">
                             </div>
                             <div class="form-group">
                                 <label for="permission"><?php echo e(__('Permissions')); ?></label>
-                                <select name="permission[]" multiple id="permission" class="form-control nice-select wide">
+                                <select name="permission[]" multiple id="permission"
+                                        class="form-control nice-select wide">
                                     <?php $__currentLoopData = $all_permission_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $per): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                    <option value="<?php echo e(strtolower(str_replace(' ','_',$per))); ?>"><?php echo e($per); ?></option>
+                                        <option value="<?php echo e(strtolower(str_replace(' ','_',$per))); ?>"><?php echo e($per); ?></option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
                                 <div class="info-text"><?php echo e(__('assign permission to role, which page can seen by the this role')); ?></div>
@@ -165,17 +168,20 @@
                     <h5 class="modal-title"><?php echo e(__('Admin Role Edit')); ?></h5>
                     <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
                 </div>
-                <form action="<?php echo e(route('admin.user.role.edit')); ?>" id="user_edit_modal_form" method="post" enctype="multipart/form-data">
+                <form action="<?php echo e(route('admin.user.role.edit')); ?>" id="user_edit_modal_form" method="post"
+                      enctype="multipart/form-data">
                     <div class="modal-body">
                         <input type="hidden" name="admin_role_id" id="admin_role_id">
                         <?php echo csrf_field(); ?>
                         <div class="form-group">
                             <label for="edit_name"><?php echo e(__('Role Name')); ?></label>
-                            <input type="text" class="form-control"  id="edit_name" name="name" placeholder="<?php echo e(__('Enter Role name')); ?>">
+                            <input type="text" class="form-control" id="edit_name" name="name"
+                                   placeholder="<?php echo e(__('Enter Role name')); ?>">
                         </div>
                         <div class="form-group">
                             <label for="edit_permission"><?php echo e(__('Permissions')); ?></label>
-                            <select name="permission[]" multiple id="edit_permission" class="form-control nice-select wide">
+                            <select name="permission[]" multiple id="edit_permission"
+                                    class="form-control nice-select wide">
                                 <?php $__currentLoopData = $all_permission_list; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $per): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                     <option value="<?php echo e(strtolower(str_replace(' ','_',$per))); ?>"><?php echo e($per); ?></option>
                                 <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -199,19 +205,19 @@
     <script>
         $(document).ready(function () {
 
-            $(document).on('click','.user_edit_btn',function(){
+            $(document).on('click', '.user_edit_btn', function () {
                 var el = $(this);
                 var form = $('#user_edit_modal_form');
                 var permission = el.data('permission');
                 form.find('#admin_role_id').val(el.data('id'));
                 form.find('#edit_name').val(el.data('name'));
-                $.each(permission,function (index,value) {
-                form.find('#edit_permission option[value="'+value+'"]').attr('selected',true);
+                $.each(permission, function (index, value) {
+                    form.find('#edit_permission option[value="' + value + '"]').attr('selected', true);
                 });
                 $('#edit_permission').niceSelect('update');
             });
 
-            if($('.nice-select').length > 0){
+            if ($('.nice-select').length > 0) {
                 $('.nice-select').niceSelect();
             }
         });
