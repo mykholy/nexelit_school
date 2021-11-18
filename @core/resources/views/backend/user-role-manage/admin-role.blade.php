@@ -13,6 +13,7 @@
         "Admin Manage",
         "About Page Manage",
         "Users Manage",
+        "Students Manage",
         "Quote Manage",
         "Newsletter Manage",
         "Package Orders Manage",

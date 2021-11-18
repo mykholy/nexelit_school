@@ -58,6 +58,25 @@
                         </ul>
                     </li>
                     @endif
+
+                    @if(check_page_permission_by_string('Students Manage'))
+                        <li
+                                class="main_dropdown
+                        @if(request()->is([
+                        'admin-home/frontend/student/*',
+                        ])) active @endif
+                                        ">
+                            <a href="javascript:void(0)" aria-expanded="true"><i class="ti-user"></i>
+                                <span>{{__('Students Manage')}}</span></a>
+                            <ul class="collapse">
+                                <li class="{{active_menu('admin-home/frontend/student/all')}}"><a
+                                            href="{{route('admin.all.frontend.student')}}">{{__('All Students')}}</a></li>
+                                <li class="{{active_menu('admin-home/frontend/student/new')}}"><a
+                                            href="{{route('admin.frontend.new.student')}}">{{__('Add New Student')}}</a></li>
+                            </ul>
+                        </li>
+                    @endif
+
                     @if(check_page_permission_by_string('Newsletter Manage'))
                     <li
                         class="main_dropdown @if(request()->is(['admin-home/newsletter/*','admin-home/newsletter'])) active @endif

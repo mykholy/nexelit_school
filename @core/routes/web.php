@@ -2236,6 +2236,7 @@ Route::prefix('admin-home')->middleware(['setlang:backend'])->group(function () 
         Route::post('/mega-menu', 'MenuController@mega_menu_item_select_markup')->name('admin.mega.menu.item.select.markup');
     });
 
+
     /*==============================================
           FRONTEND USER MANAGE
     ==============================================*/
@@ -2248,6 +2249,20 @@ Route::prefix('admin-home')->middleware(['setlang:backend'])->group(function () 
         Route::get('/all', 'FrontendUserManageController@all_user')->name('admin.all.frontend.user');
         Route::post('/all/bulk-action', 'FrontendUserManageController@bulk_action')->name('admin.all.frontend.user.bulk.action');
         Route::post('/all/email-status', 'FrontendUserManageController@email_status')->name('admin.all.frontend.user.email.status');
+
+    });
+
+
+    /*==============================================
+          FRONTEND Student MANAGE
+    ==============================================*/
+    Route::prefix('frontend/student')->middleware(['adminPermissionCheck:Students Manage'])->group(function () {
+        Route::get('/new', 'FrontendStudentManageController@new_student')->name('admin.frontend.new.student');
+        Route::post('/new', 'FrontendStudentManageController@new_student_add');
+        Route::post('/update', 'FrontendStudentManageController@student_update')->name('admin.frontend.student.update');
+        Route::post('/delete/{id}', 'FrontendStudentManageController@new_student_delete')->name('admin.frontend.delete.student');
+        Route::get('/all', 'FrontendStudentManageController@all_student')->name('admin.all.frontend.student');
+        Route::post('/all/bulk-action', 'FrontendStudentManageController@bulk_action')->name('admin.all.frontend.student.bulk.action');
 
     });
 
